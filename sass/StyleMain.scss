@@ -1,0 +1,167 @@
+@use 'colores';
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    --a: scale(0);
+}
+body{
+    background-color: colores.$color5;
+    font-family: 'Raleway', sans-serif;
+    height: 1500px;
+}
+.menu{
+    background: linear-gradient(120deg, colores.$color5, colores.$color5);
+    display: flex;
+    height: 70px;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    align-items: center;
+    box-shadow: 0px 0px 25px 1px;
+    &__figure{
+        height: max-content;
+        width: max-content;
+        // margin-left: 25px;
+        &--logo{
+            height: 55px;
+            transition: all .5s;
+            margin-left: 75px;
+            &:hover{
+                animation: alternate ruido .5s;
+            }
+        }
+    }
+    &__nav{
+        // background-color: blue;
+        width: 40vw;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        right: 50px;
+        &--item{
+            width: 100%;
+            // border: 1px solid black;
+            border-collapse: collapse;
+            text-decoration: none;
+            color: colores.$colorBlanco;
+            font-weight: 300;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // padding: 5px 10px;
+            height: 30px;
+            transition: all .5s;
+            // background-color: colores.$color1;
+            &:hover{
+                width: 150%;
+                background-color: colores.$colorBlanco;
+                color:colores.$color5;
+                box-shadow: 0px 0px 10px 10px;
+                font-weight: 400;
+                text-shadow: 0px 0px 2px;
+            }
+        }
+    }
+}
+.header{
+    background: url("../assets/img__header.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-position: 0px 80%;
+    height: 80vh;
+    width: 100%;
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 0px 15px 1px;
+    &::after{
+        content: '';
+        position: absolute;
+        inset: 0 0 0 0;
+        background:linear-gradient(120deg, colores.$color2, colores.$color1);
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 20%;
+        z-index: 1;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        inset: 0 0 0 0;
+        background: url("../assets/logo.png");
+        z-index: 0;
+        background-repeat: no-repeat;
+        background-position: 50% 72%;
+        background-size: 30%;
+        opacity: 30%;
+    }
+    &__article{
+        position: relative;
+        z-index: 2;
+        // background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &--title{
+            font-size: 6vw;
+            color: colores.$colorBlanco;
+            filter: drop-shadow(0px 0px 15px);
+        }
+        figure > img{
+            height: 150px;
+            filter: drop-shadow(0px 0px 15px #f5f5f5);
+        }
+    }
+}
+
+
+.targetas{
+    // background-color: blue;
+    // height: 500px;
+    // width: 500px;
+    margin: 0 auto;
+    width: 90vw;
+    height: max-content;
+    // height: 500px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    &__targeta{
+        background-color: colores.$color4;
+        overflow: hidden;
+        height: 300px;
+        width: 250px;
+        border-radius: 20px;
+        transition: all .5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        &:hover{
+            box-shadow: 0px 0px 20px colores.$colorBlanco;
+            transform: scale(1.04);
+            z-index: 99;
+        }
+        
+    }
+}
+
+
+
+@keyframes ruido {
+    15%{transform: rotate(5deg);}
+    30%{transform: rotate(-5deg);}
+    45%{transform: rotate(5deg);}
+    60%{transform: rotate(-5deg);}
+}
